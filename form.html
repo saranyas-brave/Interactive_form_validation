@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Form Validation</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f6f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      width: 350px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 25px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+
+    .error {
+      color: #d93025;
+      font-size: 14px;
+      margin-top: 4px;
+      display: none;
+    }
+
+    .success {
+      color: #28a745;
+      text-align: center;
+      margin-top: 15px;
+      font-weight: 500;
+    }
+
+    button {
+      width: 100%;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>User Registration</h2>
+
+    <!-- ✅ Added form tag -->
+    <form id="userForm">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="Enter your full name" />
+        <span class="error" id="nameError">Please enter your name.</span>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="example@gmail.com" />
+        <span class="error" id="emailError">Please enter a valid email address.</span>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter password" />
+        <span class="error" id="passwordError">Password must be at least 6 characters long.</span>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <div class="success" id="successMessage"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById("userForm");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault(); // ✅ Prevents the form from reloading the page
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      let valid = true;
+
+      // Name validation
+      if (name === "") {
+        document.getElementById("nameError").style.display = "block";
+        valid = false;
+      } else {
+        document.getElementById("nameError").style.display = "none";
+      }
+
+      // Email validation
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (!email.match(emailPattern)) {
+        document.getElementById("emailError").style.display = "block";
+        valid = false;
+      } else {
+        document.getElementById("emailError").style.display = "none";
+      }
+
+      // Password validation
+      if (password.length < 6) {
+        document.getElementById("passwordError").style.display = "block";
+        valid = false;
+      } else {
+        document.getElementById("passwordError").style.display = "none";
+      }
+
+      // Show success message if all fields are valid
+      const successMessage = document.getElementById("successMessage");
+      if (valid) {
+        successMessage.innerText = "✅ Form submitted successfully!";
+        successMessage.style.color = "#28a745";
+
+        // Optional: Clear form fields
+        form.reset();
+      } else {
+        successMessage.innerText = "";
+      }
+    });
+  </script>
+</body>
+</html>
