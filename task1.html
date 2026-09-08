@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Box Model Layout</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:red;
+    font-family:Georgia, serif;
+}
+
+.container{
+    width:80%;
+    margin:0 auto;
+    background:#e6dcc0;
+    padding:40px;
+}
+
+/* Header */
+.header{
+    background:#d8b68a;
+    padding:30px 20px;
+    margin-bottom:30px;
+}
+
+.header h1{
+    color:green;
+    font-size:80px;
+    font-weight:bold;
+}
+
+/* Main Content */
+.content{
+    display:flex;
+    gap:40px;
+    margin-bottom:20px;
+}
+
+.main{
+    flex:2;
+    background:#d8b68a;
+    padding:20px;
+    line-height:1.8;
+    font-size:18px;
+}
+
+.sidebar{
+    flex:1;
+    background:#d8b68a;
+    padding:20px;
+}
+
+.sidebar h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.sidebar ul{
+    padding-left:20px;
+}
+
+.sidebar li{
+    margin-bottom:15px;
+    line-height:1.5;
+}
+
+/* Footer */
+.footer{
+    background:#d8b68a;
+    padding:10px;
+    font-size:16px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>HTML</h1>
+    </div>
+
+    <div class="content">
+
+        <div class="main">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                velit esse cillum dolore eu fugiat nulla pariatur.
+            </p>
+
+            <p>
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste
+                natus error sit voluptatem accusantium doloremque laudantium.
+            </p>
+        </div>
+
+        <div class="sidebar">
+            <h2>SIDE SECTION</h2>
+
+            <ul>
+                <li>Fusce diam. Pellentesque bibendum. Nulla viverra vestibulum justo.</li>
+                <li>Cras vestibulum elit id nibh hendrerit eleifend.</li>
+                <li>Morbi at tellus facilisis augue tempor pharetra.</li>
+                <li>Class aptent taciti sociosqu ad litora torquent per conubia nostra.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        Copyright © Box Model, all rights reserved.
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+body{
+    background-color: red;
+}
+.parent
+{
+    padding: 30px;
+    background-color: beige;
+    margin:30px;
+}
+.header {
+    margin:10px;
+    color:green;
+    padding:5px;
+    font-size: 20px;
+    background-color: bisque;
+}
+.left {
+    background-color: bisque;
+    padding-left:20px;
+    margin-right:650px;
+    padding-right:20px;
+    padding-top:8px;
+    padding-bottom: 5px;
+
+}
+.right {
+    background-color: bisque;
+    margin-top:-340px;
+    padding-left:10px;
+    margin-left:800px;
+    padding-bottom:15px;
+    padding-right:20px;
+}
+.footer{
+   margin:20px;
+   background-color: bisque;
+   padding: 10px;
+
+}
